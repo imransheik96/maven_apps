@@ -1,20 +1,20 @@
 node {
    
    stage('Code Checkout') { 
-     git credentialsId: 'githubID', url: 'https://github.com/itrainbatman/maven_apps.git' 
+     git credentialsId: 'github', url: 'https://github.com/imransheik96/maven_apps.git' 
     }
    stage('Build') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
      sh 'mvn clean compile'
       }
     }
    stage('Unit Test run') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
      sh 'mvn test'
       } 
     }
    stage('Package') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
      sh 'mvn package'
       }
     }
